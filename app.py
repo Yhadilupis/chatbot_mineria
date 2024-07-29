@@ -11,7 +11,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Carga el modelo y otros archivos
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents_spanish.json', 'r', encoding='utf-8').read())
 words = pickle.load(open('words.pkl', 'rb'))
@@ -70,10 +69,8 @@ def get_bot_response():
         intents_list = predict_class(user_input)
         response = get_response(intents_list, intents)
 
-        # Realizar análisis de sentimientos
         sentiment_score, sentiment_type, contains_bad_words = analyze_sentiment(user_input)
 
-        # Guardar en MySQL
         save_to_mysql(user_input, sentiment_score, sentiment_type, contains_bad_words, useruuid, session_start_time)
 
         return jsonify({'response': response, 'contains_bad_words': contains_bad_words})
@@ -82,4 +79,4 @@ def get_bot_response():
         return jsonify({'response': "Lo siento, ha ocurrido un error."})
 
 if __name__ == "__main__":
-    app.run(debug=False)  # Desactivar el modo de depuración para evitar problemas con werkzeug
+    app.run(debug=False) 
