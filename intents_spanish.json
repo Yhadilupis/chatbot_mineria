@@ -1,0 +1,240 @@
+{
+    "intents": [
+        {
+            "tag": "saludo",
+            "patterns": ["hola", "Buenos días", "Buenas tardes"],
+            "response": ["¡Hola!", "¿Cómo puedo ayudarte hoy?", "¿Qué necesitas?"]
+        },
+        {
+            "tag": "saludo_2",
+            "patterns": ["¿Qué tal?", "¿Cómo estás?", "¿Cómo te va?"],
+            "response": ["¡Hey!", "¿En qué puedo ayudarte hoy?", "¿Qué necesitas, el día de hoy?"]
+        },
+        {
+            "tag": "información",
+            "patterns": ["¿Qué eres?", "¿Qué haces?", "¿Qué puedes hacer?"],
+            "response": ["Soy un asistente de consejos sobre el aprendizaje", "Soy un asistente virtual", "Soy un asistente virtual y puedo proporcionarte consejos, resolver tus dudas y darte información sobre los 3 tipos de aprendizaje: Kinestésico, auditivo y visual"]
+        },
+        {
+            "tag": "que_es_visual",
+            "patterns": ["¿Qué es el aprendizaje visual?"],
+            "response": ["El aprendizaje visual se basa en la utilización de imágenes, gráficos y otros elementos visuales para comprender y retener información."]
+        },
+        {
+            "tag": "mejorar_visual",
+            "patterns": ["¿Cómo puedo mejorar mi aprendizaje visual?"],
+            "response": ["Para mejorar tu aprendizaje visual, utiliza mapas mentales, diagramas y presentaciones visuales."]
+        },
+        {
+            "tag": "tecnicas_visual",
+            "patterns": ["Dame ejemplos de técnicas visuales de aprendizaje."],
+            "response": ["Técnicas visuales incluyen el uso de gráficos, esquemas y diagramas para organizar información."]
+        },
+        {
+            "tag": "caracteristicas_visual",
+            "patterns": ["¿Qué características tiene un aprendiz visual?"],
+            "response": ["Un aprendiz visual prefiere ver información y utiliza elementos visuales para comprender conceptos."]
+        },
+        {
+            "tag": "identificar_visual",
+            "patterns": ["¿Cómo identifico a un aprendiz visual?"],
+            "response": ["Un aprendiz visual se identifica por su preferencia por ver material en lugar de solo escucharlo o hacerlo."]
+        },
+        {
+            "tag": "estrategias_visual",
+            "patterns": ["¿Cuáles son las mejores estrategias para el aprendizaje visual?"],
+            "response": ["Las mejores estrategias incluyen el uso de imágenes, tablas y videos para representar información."]
+        },
+        {
+            "tag": "herramientas_visual",
+            "patterns": ["¿Qué herramientas ayudan en el aprendizaje visual?"],
+            "response": ["Herramientas útiles son programas de diseño gráfico, aplicaciones de mapas mentales y software de presentaciones."]
+        },
+        {
+            "tag": "ventajas_visual",
+            "patterns": ["¿Qué ventajas tiene el aprendizaje visual?"],
+            "response": ["Ventajas del aprendizaje visual incluyen una mejor retención de la información y una comprensión más clara de los conceptos."]
+        },
+        {
+            "tag": "visual_info_9",
+            "patterns": ["¿Cómo utilizar gráficos para el aprendizaje visual?"],
+            "response": ["Utiliza gráficos para resumir y simplificar información compleja, facilitando su comprensión."]
+        },
+        {
+            "tag": "materiales_visual",
+            "patterns": ["¿Qué tipo de materiales ayudan a los aprendices visuales?"],
+            "response": ["Materiales útiles para los aprendices visuales incluyen libros con ilustraciones, videos educativos y presentaciones."]
+        },
+        {
+            "tag": "que_es_kinestesico",
+            "patterns": ["¿Qué es el aprendizaje kinestésico?"],
+            "response": ["El aprendizaje kinestésico se basa en la experiencia práctica y la manipulación de objetos para aprender."]
+        },
+        {
+            "tag": "mejorar_kinestesico",
+            "patterns": ["¿Cómo puedo mejorar mi aprendizaje kinestésico?"],
+            "response": ["Para mejorar tu aprendizaje kinestésico, participa en actividades prácticas y experimenta con objetos relacionados con el tema."]
+        },
+        {
+            "tag": "tecnicas_kinestesico",
+            "patterns": ["Dame ejemplos de técnicas kinestésicas de aprendizaje."],
+            "response": ["Técnicas kinestésicas incluyen realizar experimentos, manipular modelos y usar la práctica activa."]
+        },
+        {
+            "tag": "caracteristicas_kinestesico",
+            "patterns": ["¿Qué características tiene un aprendiz kinestésico?"],
+            "response": ["Un aprendiz kinestésico prefiere aprender a través de la acción y la práctica en lugar de solo ver o escuchar."]
+        },
+        {
+            "tag": "identificar_kinestesico",
+            "patterns": ["¿Cómo identifico a un aprendiz kinestésico?"],
+            "response": ["Un aprendiz kinestésico se identifica por su preferencia por actividades físicas y la manipulación de objetos."]
+        },
+        {
+            "tag": "estrategias_kinestesico",
+            "patterns": ["¿Cuáles son las mejores estrategias para el aprendizaje kinestésico?"],
+            "response": ["Las mejores estrategias incluyen la experimentación, la simulación de situaciones prácticas y el uso de modelos manipulativos."]
+        },
+        {
+            "tag": "actividades_kinestesico",
+            "patterns": ["¿Qué actividades ayudan en el aprendizaje kinestésico?"],
+            "response": ["Actividades útiles son los experimentos prácticos, los juegos de rol y las actividades físicas relacionadas con el tema de estudio."]
+        },
+        {
+            "tag": "ventajas_kinestesico",
+            "patterns": ["¿Qué ventajas tiene el aprendizaje kinestésico?"],
+            "response": ["Ventajas del aprendizaje kinestésico incluyen una comprensión más profunda y una mayor retención a través de la práctica activa."]
+        },
+        {
+            "tag": "kinestesico_info_9",
+            "patterns": ["¿Cómo utilizar la práctica para el aprendizaje kinestésico?"],
+            "response": ["Utiliza la práctica continua y la experimentación para consolidar los conceptos y habilidades aprendidas."]
+        },
+        {
+            "tag": "kinestesico_info_10",
+            "patterns": ["¿Qué tipo de materiales ayudan a los aprendices kinestésicos?"],
+            "response": ["Materiales útiles para los aprendices kinestésicos incluyen modelos físicos, kits de experimentos y materiales manipulativos."]
+        },
+        {
+            "tag": "que_es_auditivo",
+            "patterns": ["¿Qué es el aprendizaje auditivo?"],
+            "response": ["El aprendizaje auditivo se basa en la escucha y la reproducción de información para aprender y retener conocimientos."]
+        },
+        {
+            "tag": "mejorar_auditivo",
+            "patterns": ["¿Cómo puedo mejorar mi aprendizaje auditivo?"],
+            "response": ["Para mejorar tu aprendizaje auditivo, escucha grabaciones, participa en discusiones y usa técnicas de repetición verbal."]
+        },
+        {
+            "tag": "tecnicas_auditivas",
+            "patterns": ["Dame ejemplos de técnicas auditivas de aprendizaje."],
+            "response": ["Técnicas auditivas incluyen escuchar conferencias, grabaciones y participar en discusiones grupales."]
+        },
+        {
+            "tag": "caracteristicas_auditivo",
+            "patterns": ["¿Qué características tiene un aprendiz auditivo?"],
+            "response": ["Un aprendiz auditivo prefiere aprender a través de la escucha y la participación en conversaciones sobre el tema."]
+        },
+        {
+            "tag": "identificar_auditivo",
+            "patterns": ["¿Cómo identifico a un aprendiz auditivo?"],
+            "response": ["Un aprendiz auditivo se identifica por su preferencia por escuchar información y discutir sobre el material."]
+        },
+        {
+            "tag": "estrategias_auditivo",
+            "patterns": ["¿Cuáles son las mejores estrategias para el aprendizaje auditivo?"],
+            "response": ["Las mejores estrategias incluyen escuchar audios educativos, leer en voz alta y participar en debates."]
+        },
+        {
+            "tag": "herramientas_auditivo",
+            "patterns": ["¿Qué herramientas ayudan en el aprendizaje auditivo?"],
+            "response": ["Herramientas útiles son grabaciones de conferencias, podcasts educativos y aplicaciones de lectura en voz alta."]
+        },
+        {
+            "tag": "ventajas_auditivo",
+            "patterns": ["¿Qué ventajas tiene el aprendizaje auditivo?"],
+            "response": ["Ventajas del aprendizaje auditivo incluyen una mejor retención a través de la repetición y la capacidad de aprender a través de la escucha."]
+        },
+        {
+            "tag": "auditivo_info_9",
+            "patterns": ["¿Cómo utilizar la escucha activa para el aprendizaje auditivo?"],
+            "response": ["Utiliza la escucha activa y la repetición para reforzar la comprensión y la retención de la información."]
+        },
+        {
+            "tag": "materiales_auditivos",
+            "patterns": ["¿Qué tipo de materiales ayudan a los aprendices auditivos?"],
+            "response": ["Materiales útiles para los aprendices auditivos incluyen grabaciones de audio, podcasts y discusiones grupales."]
+        },
+        {
+            "tag": "consejos_visual_1",
+            "patterns": ["¿Cómo puedo mejorar el aprendizaje visual de un estudiante?"],
+            "response": ["Para mejorar el aprendizaje visual de un estudiante, utiliza gráficos, esquemas y mapas mentales para representar la información de manera clara y estructurada."]
+        },
+        {
+            "tag": "consejos_visual_2",
+            "patterns": ["¿Qué consejos darías para un aprendiz visual?"],
+            "response": ["Consejos para un aprendiz visual incluyen el uso de recursos visuales como diagramas, videos y presentaciones para facilitar la comprensión y la retención."]
+        },
+        {
+            "tag": "apoyo_visual",
+            "patterns": ["¿Cómo apoyar a un estudiante con preferencia visual?"],
+            "response": ["Para apoyar a un estudiante con preferencia visual, proporciona materiales visuales como infografías y cuadros de resumen que ayuden a organizar la información."]
+        },
+        {
+            "tag": "consejos_visual_4",
+            "patterns": ["¿Qué estrategias recomiendas para un aprendiz visual?"],
+            "response": ["Las estrategias recomendadas para un aprendiz visual son el uso de colores para destacar información clave, la creación de mapas mentales y el empleo de presentaciones visuales interactivas."]
+        },
+        {
+            "tag": "consejos_kinestesico_1",
+            "patterns": ["¿Cómo puedo mejorar el aprendizaje kinestésico de un estudiante?"],
+            "response": ["Para mejorar el aprendizaje kinestésico de un estudiante, incorpora actividades prácticas y manipulativas como experimentos y juegos de rol que permitan la experimentación y el movimiento."]
+        },
+        {
+            "tag": "consejos_kinestesico_2",
+            "patterns": ["¿Qué consejos darías para un aprendiz kinestésico?"],
+            "response": ["Consejos para un aprendiz kinestésico incluyen la participación en actividades físicas relacionadas con el tema, el uso de modelos manipulativos y la práctica activa de habilidades."]
+        },
+        {
+            "tag": "apoyo_kinestesico",
+            "patterns": ["¿Cómo apoyar a un estudiante con preferencia kinestésica?"],
+            "response": ["Para apoyar a un estudiante con preferencia kinestésica, ofrece oportunidades para realizar proyectos prácticos, experimentar con materiales y participar en simulaciones de situaciones reales."]
+        },
+        {
+            "tag": "consejos_kinestesico_4",
+            "patterns": ["¿Qué estrategias recomiendas para un aprendiz kinestésico?"],
+            "response": ["Las estrategias recomendadas para un aprendiz kinestésico son la integración de actividades prácticas, la utilización de kits de experimentos y la promoción de la práctica continua a través de la acción."]
+        },
+        {
+            "tag": "consejos_auditivo_1",
+            "patterns": ["¿Cómo puedo mejorar el aprendizaje auditivo de un estudiante?"],
+            "response": ["Para mejorar el aprendizaje auditivo de un estudiante, utiliza recursos auditivos como grabaciones, podcasts y discusiones para reforzar la comprensión y la retención de información."]
+        },
+        {
+            "tag": "consejos_auditivo_2",
+            "patterns": ["¿Qué consejos darías para un aprendiz auditivo?"],
+            "response": ["Consejos para un aprendiz auditivo incluyen la participación en debates, la escucha de conferencias y la lectura en voz alta para facilitar el aprendizaje y la asimilación de conceptos."]
+        },
+        {
+            "tag": "apoyo_auditivo",
+            "patterns": ["¿Cómo apoyar a un estudiante con preferencia auditiva?"],
+            "response": ["Para apoyar a un estudiante con preferencia auditiva, proporciona materiales de audio y fomenta la participación en grupos de discusión y actividades que impliquen la escucha activa."]
+        },
+        {
+            "tag": "consejos_auditivo_4",
+            "patterns": ["¿Qué estrategias recomiendas para un aprendiz auditivo?"],
+            "response": ["Las estrategias recomendadas para un aprendiz auditivo son la utilización de grabaciones educativas, la integración de actividades de escucha activa y la promoción de la repetición verbal y la discusión."]
+        },
+        {
+            "tag": "concepto_aprendizaje",
+            "patterns": ["¿Qué es el aprendizaje?"],
+            "response": ["El aprendizaje es el proceso mediante el cual adquirimos conocimientos, habilidades, valores o actitudes a través de la experiencia, el estudio o la enseñanza."]
+        },
+        {
+            "tag": "despedida",
+            "patterns": ["adiós", "bye", "hasta luego", "nos vemos"],
+            "response": ["¡Adiós! Si necesitas más ayuda, no dudes en volver.", "¡Hasta luego! Estoy aquí si necesitas algo más.", "¡Nos vemos! No dudes en volver si tienes más preguntas."]
+        }
+    ]
+}
+

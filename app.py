@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 import json
 import pickle
 import numpy as np
@@ -53,19 +53,16 @@ def get_response(intents_list, intents_json):
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if i['tag'] == tag:
-            return random.choice(i['response'])
+            return random.choice(i.get('response', ["Lo siento, no tengo una respuesta para eso."]))
 
     return "Lo siento, no tengo una respuesta para eso."
 
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route('/get', methods=['GET'])
-def get_bot_response():
+@app.route('/chatbot', methods=['POST'])
+def chatbot_response():
     try:
-        user_input = request.args.get('msg')
-        useruuid = request.args.get('useruuid', 'default_uuid')  # Obtener el UUID del usuario o usar un valor por defecto
+        data = request.get_json()
+        user_input = data.get('msg')
+        useruuid = data.get('useruuid', 'default_uuid') 
         intents_list = predict_class(user_input)
         response = get_response(intents_list, intents)
 
@@ -73,10 +70,13 @@ def get_bot_response():
 
         save_to_mysql(user_input, sentiment_score, sentiment_type, contains_bad_words, useruuid, session_start_time)
 
-        return jsonify({'response': response, 'contains_bad_words': contains_bad_words})
+        return jsonify({
+            'response': response,
+            'contains_bad_words': contains_bad_words
+        })
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({'response': "Lo siento, ha ocurrido un error."})
 
 if __name__ == "__main__":
-    app.run(debug=False) 
+    app.run(debug=False)
