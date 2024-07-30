@@ -37,12 +37,14 @@ def save_to_mysql(user_input, sentiment_score, sentiment_type, contains_bad_word
     mysql_host = os.getenv('MYSQL_HOST')
     mysql_database = os.getenv('MYSQL_DATABASE')
     mysql_table = os.getenv('MYSQL_TABLE')
+    mysql_port = os.getenv('MYSQL_PORT')
     
     cantidad_mensajes = len(user_input.split())  
     duracion_sesion = (datetime.now() - session_start_time).total_seconds() / 60.0 
     
     cnx = mysql.connector.connect(user=mysql_user, password=mysql_password,
-                                  host=mysql_host, database=mysql_database)
+                                  host=mysql_host, database=mysql_database,
+                                  port=mysql_port)
     cursor = cnx.cursor()
 
     crear_tabla = f"""
