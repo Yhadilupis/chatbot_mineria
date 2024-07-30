@@ -16,8 +16,9 @@ password = os.getenv('MYSQL_PASSWORD')
 host = os.getenv('MYSQL_HOST')
 database = os.getenv('MYSQL_DATABASE')
 table = os.getenv('MYSQL_TABLE')
+port = os.getenv('MYSQL_PORT')
 
-connection_string = f"mysql+pymysql://{user}:{password}@{host}/{database}"
+connection_string = f"mysql+pymysql://{user}:{password}@{host}:{port}/{database}"
 engine = create_engine(connection_string)
 
 query = f"""
