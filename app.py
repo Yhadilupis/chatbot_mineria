@@ -1,78 +1,49 @@
 from flask import Flask, request, jsonify, send_file
 import json
-import pickle
-import numpy as np
-import nltk
-from keras.models import load_model
-from nltk.stem import WordNetLemmatizer
-import random
+import openai
 from sentiment_analysis import analyze_sentiment, save_to_mysql
 from datetime import datetime
 import os
 
 app = Flask(__name__)
 
-lemmatizer = WordNetLemmatizer()
-intents = json.loads(open('intents_spanish.json', 'r', encoding='utf-8').read())
-words = pickle.load(open('words.pkl', 'rb'))
-classes = pickle.load(open('classes.pkl', 'rb'))
-model = load_model('chatbot_model.h5')
+# Cargar la clave de API de OpenAI desde las variables de entorno
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 # Inicializar la hora de inicio de la sesión
 session_start_time = datetime.now()
-
-def clean_up_sentence(sentence):
-    sentence_words = nltk.word_tokenize(sentence)
-    sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
-    return sentence_words
-
-def bag_of_words(sentence):
-    sentence_words = clean_up_sentence(sentence)
-    bag = [0] * len(words)
-    for w in sentence_words:
-        for i, word in enumerate(words):
-            if word == w:
-                bag[i] = 1
-    return np.array(bag)
-
-def predict_class(sentence):
-    bow = bag_of_words(sentence)
-    res = model.predict(np.array([bow]))[0]
-    ERROR_THRESHOLD = 0.25
-    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
-    results.sort(key=lambda x: x[1], reverse=True)
-    return_list = []
-    for r in results:
-        return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
-    return return_list
-
-def get_response(intents_list, intents_json):
-    if not intents_list:
-        return "Lo siento, no pude encontrar una respuesta para tu pregunta."
-
-    tag = intents_list[0]['intent']
-    list_of_intents = intents_json['intents']
-    for i in list_of_intents:
-        if i['tag'] == tag:
-            return random.choice(i.get('response', ["Lo siento, no tengo una respuesta para eso."]))
-
-    return "Lo siento, no tengo una respuesta para eso."
 
 @app.route('/chatbot', methods=['POST'])
 def chatbot_response():
     try:
         data = request.get_json()
         user_input = data.get('msg')
-        useruuid = data.get('useruuid', 'default_uuid') 
-        intents_list = predict_class(user_input)
-        response = get_response(intents_list, intents)
+        useruuid = data.get('useruuid', 'default_uuid')
 
+        # Llamada a la API de OpenAI para obtener la respuesta
+        response = openai.ChatCompletion.create(
+            model="gpt-4o-mini",  # Especificar el modelo GPT-4 mini si está disponible
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": user_input}
+            ],
+            max_tokens=150,
+            n=1,
+            stop=None,
+            temperature=0.7,
+        )
+
+        # Extraer la respuesta generada
+        generated_text = response.choices[0].message['content'].strip()
+
+        # Análisis de sentimientos y palabras ofensivas
         sentiment_score, sentiment_type, contains_bad_words = analyze_sentiment(user_input)
 
+        # Guardar los resultados en la base de datos MySQL
         save_to_mysql(user_input, sentiment_score, sentiment_type, contains_bad_words, useruuid, session_start_time)
 
         return jsonify({
-            'response': response,
+            'response': generated_text,
             'contains_bad_words': contains_bad_words
         })
     except Exception as e:
@@ -89,3 +60,4 @@ def obtener_predicciones():
 
 if __name__ == "__main__":
     app.run(debug=False)
+
