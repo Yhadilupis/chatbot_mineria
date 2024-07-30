@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import json
 import pickle
 import numpy as np
@@ -8,6 +8,7 @@ from nltk.stem import WordNetLemmatizer
 import random
 from sentiment_analysis import analyze_sentiment, save_to_mysql
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
@@ -77,6 +78,14 @@ def chatbot_response():
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({'response': "Lo siento, ha ocurrido un error."})
+
+@app.route('/predicciones', methods=['GET'])
+def obtener_predicciones():
+    try:
+        return send_file('predicciones.png', mimetype='image/png')
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({'response': "Lo siento, ha ocurrido un error al recuperar las predicciones."})
 
 if __name__ == "__main__":
     app.run(debug=False)
